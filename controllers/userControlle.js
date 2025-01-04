@@ -1,7 +1,9 @@
 import User from '../model/user.js'
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 
+dotenv.config();
 
 export function registerUser(req, res) {
   const data = req.body;
@@ -40,7 +42,7 @@ export function loginUser(req, res) {
           email :user.email,
           role : user.role
 
-        },"kv-secret-89!")
+        },process.env.SECRET_PASS)
         res.json({ message: "Login successful" ,token:token});
       } else {
         res.status(401).json({ error: "Login failed" });
