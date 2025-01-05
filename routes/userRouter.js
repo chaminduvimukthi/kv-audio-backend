@@ -11,3 +11,6 @@ userRouter.post("/login",loginUser)
 
 
 export default userRouter;
+
+// "email": "danindu@gmal.com",
+//     "password": "123",
