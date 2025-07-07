@@ -35,6 +35,7 @@ export function loginUser(req, res) {
         return res.status(404).json({ error: "User not found" });
       }
 
+      
       // Compare the password using bcrypt
       bcrypt.compare(data.password, user.password)
         .then(isPasswordCorrect => {
