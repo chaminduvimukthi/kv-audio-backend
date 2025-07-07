@@ -6,11 +6,15 @@ import productRouter from "./routes/productRouter.js"; // Import productRouter
 import jwt from "jsonwebtoken"; 
 import dotenv from "dotenv";
 import reviewRouter from "./routes/reviewRouter.js";
+import inquiryRouter from "./routes/inquiryRouter.js";
+import cors from "cors"; // Import CORS middleware
 
 
 dotenv.config();
 
 const app = express();
+
+app.use(cors()); // Enable CORS for all routes
 
 app.use(bodyParser.json()); // Middleware
 
@@ -45,7 +49,8 @@ connection.once("open", () => {
 app.use("/api/users", userRouter);  // Routes for user
 app.use("/api/products", productRouter);  // Routes for products
 app.use("/api/reviews", reviewRouter);
+app.use("/api/inquiry",inquiryRouter);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(3001, () => {
+  console.log("Server is running on port 3001");
 });
