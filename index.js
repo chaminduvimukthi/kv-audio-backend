@@ -12,6 +12,7 @@ import cors from "cors"; // Import CORS middleware
 
 dotenv.config();
 
+
 const app = express();
 
 app.use(cors()); // Enable CORS for all routes
