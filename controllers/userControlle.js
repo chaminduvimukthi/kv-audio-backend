@@ -48,7 +48,7 @@ export function loginUser(req, res) {
               profilePicture: user.profilePicture
             }, process.env.SECRET_PASS, { expiresIn: '1h' }); // expires in 1 hour
 
-            res.json({ message: "Login successful", token: token });
+            res.json({ message: "Login successful", token: token ,user:user});
           } else {
             res.status(401).json({ error: "Login failed" });
           }
